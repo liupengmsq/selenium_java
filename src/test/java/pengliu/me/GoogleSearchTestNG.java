@@ -9,6 +9,11 @@ public class GoogleSearchTestNG extends BaseTestNG {
     @Autowired
     private GoogleSearchPage googleSearchPage;
 
+    @BeforeSuite
+    public static void beforeSuite() {
+        System.out.println("Before testsuite");
+    }
+
     @BeforeClass
     public void setup(ITestContext context) {
         System.out.println("Test Name: " + context.getName());
@@ -61,5 +66,10 @@ public class GoogleSearchTestNG extends BaseTestNG {
         if (driver != null) {
             driver.quit();
         }
+    }
+
+    @AfterSuite
+    public static void afterSuite() {
+        System.out.println("after testsuite");
     }
 }

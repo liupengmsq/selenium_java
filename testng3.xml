@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Selenium Suite">
+    <listeners>
+        <listener class-name="org.testng.reporters.FailedReporter"/>
+    </listeners>
+
+    <parameter name="env" value="dev"/>
+
+    <test name="Selenium Tests 2">
+        <classes>
+            <!-- 按顺序执行下面两个类中的测试方法，每个测试方法，如果有优先级，就按照优先级从0到高执行，没有优先级，就按照其在代码中的顺序执行 -->
+            <class name="pengliu.me.AnotherNewTestNG" />
+            <class name="pengliu.me.AnotherTestNG" />
+
+            <!--
+            上面代码的执行顺序如下所示 (两个testsuite的顺序是不可控的，除非使用dependson)：
+            Before testsuite in AnotherNewTestNG class
+            Before testsuite in anothertestng class
+            In testFour
+            In testThree
+            In testFive
+            In testOne
+            In testTwo
+            after testsuite in AnotherNewTestNG class
+            after testsuite in anothertestng class
+             -->
+        </classes>
+    </test>
+</suite>

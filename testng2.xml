@@ -10,6 +10,7 @@
     <test name="Selenium Tests 2">
         <classes>
             <class name="pengliu.me.GoogleSearchTestNG" />
+<!--            <class name="pengliu.me.AnotherTestNG" />-->
         </classes>
     </test>
 </suite>

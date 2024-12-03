@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Selenium Suite">
+    <listeners>
+        <listener class-name="org.testng.reporters.FailedReporter"/>
+    </listeners>
+    <parameter name="env" value="dev"/>
+
+    <test name="Selenium Tests">
+        <classes>
+            <class name="pengliu.me.AnotherTestNG" />
+        </classes>
+
+    </test>
+
+    <test name="Selenium Tests 2">
+        <classes>
+            <class name="pengliu.me.AnotherNewTestNG">
+                <methods>
+                    <include name="testFive" />
+                    <exclude name="testFour" />
+                    <include name="testThree" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!--
+    如上配置的执行结果如下所示，按照每个test标签，其中的testmethod都是先要执行完成的
+    Before testsuite in anothertestng class
+    Before testsuite in AnotherNewTestNG class
+    In testOne
+    In testTwo
+    In testThree
+    In testFive
+    after testsuite in anothertestng class
+    after testsuite in AnotherNewTestNG class
+     -->
+</suite>
